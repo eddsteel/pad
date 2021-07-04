@@ -1,0 +1,12 @@
+[Unit]
+Description=Starts pad
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/opt/pad/bin/pad
+KillMode=process
+TimeoutSec=180
+
+[Install]
+WantedBy=network.target
