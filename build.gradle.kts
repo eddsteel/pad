@@ -26,6 +26,7 @@ dependencies {
 
 application {
     mainClass.set("com.eddsteel.pad.MainKt")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
 }
 
 tasks {

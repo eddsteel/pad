@@ -4,15 +4,13 @@
 <html lang="en">
 <head>
     <title>Pad</title>
+    <link href="/assets/style.css" rel="stylesheet"/>
 </head>
 <body style="text-align: center">
-<h1>Pad</h1>
-<form method="post" action="/">
-  <textarea name="content">
-    ${content}
-  </textarea>
-  <br>
-  <input type="submit">
-</form>
+    <form method="post" action="/">
+      <textarea name="content">${content}</textarea>
+      <br>
+      <button type="submit">save</button>
+    </form>
 </body>
 </html>

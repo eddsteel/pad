@@ -5,6 +5,7 @@ import freemarker.core.HTMLOutputFormat
 import io.ktor.application.*
 import io.ktor.freemarker.*
 import io.ktor.http.*
+import io.ktor.http.content.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -19,12 +20,15 @@ fun main() {
         }
 
         routing {
+            static("assets") {
+		        resources("assets")
+            }
             get("/content") {
                 call.respond(pad.get())
             }
             post("/content") {
                 val content = call.receive<String>()
-                pad.set(content)
+                pad.set(content.trim())
                 call.respond(HttpStatusCode.Accepted)
             }
             get("/") {
@@ -32,7 +36,7 @@ fun main() {
             }
             post("/") {
                 val content = call.receiveParameters()["content"] ?: return@post call.respond(HttpStatusCode.BadRequest)
-                pad.set(content)
+                pad.set(content.trim())
                 call.respondRedirect("/")
             }
         }

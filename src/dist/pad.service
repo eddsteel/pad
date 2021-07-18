@@ -1,5 +1,5 @@
 [Unit]
-Description=Starts pad
+Description=Pad
 
 [Service]
 Type=simple
